@@ -11,12 +11,20 @@ class personagem{
     }
     
     recebeDano(quantidade){
-       this.vida = this.vida - quantidade 
+       this.vida = this.vida - quantidade
         
        if(this.vida <=0){
         this.vida = "eliminado"
     }
-}
+    
+    }
+    estaVivo(){
+         return this.vida > 0
+    }
+
+    mostrarStatus(){
+       console.log(this.nome + " | Vida: " + this.vida)
+    }
 }
 const druida = new personagem("Kode", 80, 25)
 
@@ -33,4 +41,5 @@ const anao = new personagem ("Soneca", 30, 90)
 const princesa = new personagem ("Cinderela", 85, 30)
 
 
-console.log (guerreiro, "\n", druida, "\n", mago,"\n", arqueiro,"\n", elfo, "\n", anao, "\n", princesa   )
+
+console.log (mago.mostrarStatus())
