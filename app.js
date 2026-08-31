@@ -8,6 +8,10 @@ class personagem{
     
     curar(quantidade){
         this.vida= this.vida + quantidade 
+        if(this.vida>this.vidaMax){
+            this.vida = this.vidaMax
+        }
+    
     }
     causaDano(personagem){
         personagem.recebeDano(this.ataque)
@@ -34,6 +38,12 @@ class personagem{
        console.log(this.nome + " | Vida: " + this.vida)
     }
 }
+
+class Guerreiro extends personagem{
+golpePesado(personagem){
+    personagem.recebeDano(this.ataque* 2)
+}
+}
 const druida = new personagem("Kode", 80, 25, 8)
 
 const guerreiro = new personagem("Thorin", 60, 20, 40)
@@ -48,8 +58,8 @@ const anao = new personagem ("Soneca", 30, 90, 5)
 
 const princesa = new personagem ("Cinderela", 85, 30, 12)
 
-druida.causaDano(mago
-
-)
+druida.causaDano(mago)
+mago.curar(15)
+mago.curar(20)
 
 console.log (mago.mostrarStatus())
