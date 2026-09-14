@@ -1,4 +1,4 @@
-class personagem{
+class Personagem{
     constructor(nome, vida, ataque, defesa){
         this.nome = nome,
         this.vida = vida,
@@ -13,8 +13,8 @@ class personagem{
         }
     
     }
-    causaDano(personagem){
-        personagem.recebeDano(this.ataque)
+    causaDano(Personagem){
+        Personagem.recebeDano(this.ataque)
         
     }
     
@@ -39,27 +39,54 @@ class personagem{
     }
 }
 
-class Guerreiro extends personagem{
-golpePesado(personagem){
-    personagem.recebeDano(this.ataque* 2)
+class Guerreiro extends Personagem{
+golpePesado(Personagem){
+    Personagem.recebeDano(this.ataque* 2)
 }
 }
-const druida = new personagem("Kode", 80, 25, 8)
+class Teste extends Personagem {
+    constructor(nome){
+        super (nome,80, 35, 15)
+    }
+}
 
-const guerreiro = new personagem("Thorin", 60, 20, 40)
+const druida = new Personagem("Kode", 80, 25, 8)
 
-const mago = new personagem("Gandalfe", 60, 25, 17)
+const guerreiro = new Personagem("Thorin", 60, 20, 40)
 
-const arqueiro = new personagem("Legolas", 80, 25, 13)
+const mago = new Personagem("Gandalfe", 60, 25, 17)
 
-const elfo = new personagem ("Dobby", 95, 15, 10)
+const arqueiro = new Personagem("Legolas", 80, 25, 13)
 
-const anao = new personagem ("Soneca", 30, 90, 5)
+const elfo = new Personagem ("Dobby", 95, 15, 10)
 
-const princesa = new personagem ("Cinderela", 85, 30, 12)
+const anao = new Personagem ("Soneca", 30, 90, 5)
 
-druida.causaDano(mago)
-mago.curar(15)
-mago.curar(20)
+const princesa = new Personagem ("Cinderela", 85, 30, 12)
 
-console.log (mago.mostrarStatus())
+const personagens = [
+druida,
+guerreiro, 
+mago,
+arqueiro,
+elfo,
+anao,
+princesa
+]
+
+personagens.forEach(function(personagens){
+    personagens.mostrarStatus()
+})
+
+let turno = 1
+let jogadorAtual=0
+
+function proximoTurno(){
+    turno=turno+1
+    jogadorAtual= jogadorAtual === 0 ? 1 :0
+}
+proximoTurno()
+proximoTurno()
+
+console.log(turno)
+console.log(jogadorAtual)
