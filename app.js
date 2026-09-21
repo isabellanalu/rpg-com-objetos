@@ -85,8 +85,7 @@ function proximoTurno(){
     turno=turno+1
     jogadorAtual= jogadorAtual === 0 ? 1 :0
 }
-proximoTurno()
-proximoTurno()
 
-console.log(turno)
-console.log(jogadorAtual)
+const vidaGuerreiro = document.getElementById("vida-guerreiro")
+
+vidaGuerreiro.innerText = guerreiro.vida
